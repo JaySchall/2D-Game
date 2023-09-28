@@ -6,6 +6,7 @@ public class Cord : MonoBehaviour
 {
     public GameObject playerPrefab;
     public GameObject plugPrefab;
+    private bool checkCollision = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -15,15 +16,36 @@ public class Cord : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
         if (Input.GetButtonDown("Use")) {
-            if(!gameObject.transform.IsChildOf(plugPrefab.transform))
-            {
-                Debug.Log("Not on plug");
-            }
-            if(!gameObject.transform.IsChildOf(playerPrefab.transform)) 
-            {
-                Debug.Log("Not on player");
-            }
+            checkCollision = true;
+            
+        }
+        if (Input.GetButtonUp("Use"))
+        {
+            checkCollision = false;
         }
     }
-}
+
+    private void OnTriggerStay2D(Collider2D other)
+    {
+        if (!checkCollision)
+        {
+            return;
+        }
+        checkCollision = false;
+        if (other.CompareTag("Plug"))
+        {
+            Debug.Log("Collided with plug");
+            GameObject plug = other.gameObject;
+            transform.SetParent(plug.transform);
+            
+        }
+        if (other.CompareTag("Player"))
+        {
+            Debug.Log("Collided with player");
+            GameObject player = other.gameObject;
+            transform.SetParent(player.transform);
+        }
+    }
+ }
