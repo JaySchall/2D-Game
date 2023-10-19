@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-
+    public Camera cam;
     public GameObject childPrefab;
     // Start is called before the first frame update
     void Start()
@@ -13,6 +13,7 @@ public class Player : MonoBehaviour
         {
             GameObject child = Instantiate(childPrefab);
             child.transform.SetParent(transform);
+            cam.transform.SetParent(transform);
         }
     }
 
