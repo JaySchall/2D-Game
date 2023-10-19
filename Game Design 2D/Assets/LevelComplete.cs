@@ -9,9 +9,7 @@ public class LevelComplete : MonoBehaviour
 
     public void OnContinue()
     {
-        UnityEngine.Debug.Log("HELP");
-        SceneManager.LoadScene("Main");
-        UnityEngine.Debug.Log("HELP");
+        SceneManager.LoadScene("Menu");
     }
 
 
