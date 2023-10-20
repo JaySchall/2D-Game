@@ -2,9 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class Timer : MonoBehaviour
 {
+
+    public EndGame endGameScript; // Import EndGame Script so game over screen can be displayed when time runs out
+    public TMP_Text textTimer; //Uses TMPro to display timer on screen
 
     bool timerIsRunning = false; // Gives ability to start/stop timer
     float secPerMin = 1; // The amount of realtime seconds that will pass per each minute in game
@@ -31,6 +35,7 @@ public class Timer : MonoBehaviour
     private string _currentTimeText; // Displays the time as Text on the UI
     private string _endTimeText; // Displays the time as Text on the UI
 
+    string[] endState = {"time over", "caught" }; // array holding the end of game states
     // Start is called before the first frame update
     void Start()
     {
@@ -46,20 +51,14 @@ public class Timer : MonoBehaviour
         endTime = SetTimeDateString(endHr, endMins);
 
         // Update the current and end time on screen
-        /*
-         * 
-         * 
-         *  Add current time and End time update code HERE
-         * 
-         * 
-         * 
-         */
+        textTimer.text = currentTime;
     }
 
     // Update is called once per frame
     void Update()
     {
-        while (timerIsRunning) {
+        while (timerIsRunning)
+        {
             if (timerCount >= secPerMin)
             {
                 currentMins++;
@@ -80,9 +79,11 @@ public class Timer : MonoBehaviour
                 timerCount = 0;
 
                 // stop the timer once the current time is the same as the end time
-                if (currentHr == endHr && currentMins == endMins) {
+                if (currentHr == endHr && currentMins == endMins)
+                {
                     //call end game method
                     timerIsRunning = false;
+                    endGameScript.GameOver(endState[0]); // call end game script with time ran out designation
                 }
 
                 // Update the current time on screen
@@ -110,7 +111,8 @@ public class Timer : MonoBehaviour
         {
             isAm = false;
         }
-        else {
+        else
+        {
             isAm = true;
         }
 
@@ -134,7 +136,7 @@ public class Timer : MonoBehaviour
         {
             _time += "0" + min;
         }
-        else 
+        else
         {
             _time += min;
         }
@@ -143,7 +145,8 @@ public class Timer : MonoBehaviour
         {
             _time += " AM";
         }
-        else {
+        else
+        {
             _time += " PM";
         }
 
