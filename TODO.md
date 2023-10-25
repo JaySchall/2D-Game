@@ -2,6 +2,7 @@
 
 ## Level
 - [ ] Levels
+ - [ ] Tutorial Level (Like Cuphead)
  - [ ] Background
  - [ ] Roads
  - [ ] Buildings
