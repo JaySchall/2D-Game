@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Plug : MonoBehaviour
 {
-    public GameObject electronic;
+    public GameObject[] electronics;
     private bool active = false;
     // Start is called before the first frame update
     void Start()
@@ -19,15 +19,21 @@ public class Plug : MonoBehaviour
         {
             Debug.Log("Activated");
             active = true;
-            Power powered = electronic.GetComponent<Power>();
-            powered.powered = true;
+            foreach (GameObject electronic in electronics)
+            {
+                Power powered = electronic.GetComponent<Power>();
+                powered.powered = true;
+            }
         }
         else if (transform.childCount == 0 && active)
         {
             Debug.Log("Deactivated");
             active = false;
-            Power powered = electronic.GetComponent<Power>();
-            powered.powered = false;
+            foreach (GameObject electronic in electronics)
+            {
+                Power powered = electronic.GetComponent<Power>();
+                powered.powered = false;
+            }
         }
     }
 }
