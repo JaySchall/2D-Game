@@ -39,13 +39,14 @@ public class Cord : MonoBehaviour
             Debug.Log("Collided with plug");
             GameObject plug = other.gameObject;
             transform.SetParent(plug.transform);
-            
+            transform.position = new Vector3(plug.transform.position.x, plug.transform.position.y, transform.position.z);
         }
         if (other.CompareTag("Player"))
         {
             Debug.Log("Collided with player");
             GameObject player = other.gameObject;
             transform.SetParent(player.transform);
+            transform.position = new Vector3(player.transform.position.x, player.transform.position.y, transform.position.z);
         }
     }
  }
