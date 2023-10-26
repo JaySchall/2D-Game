@@ -14,6 +14,9 @@ public class Player : MonoBehaviour
             GameObject child = Instantiate(childPrefab);
             child.transform.SetParent(transform);
             cam.transform.SetParent(transform);
+
+            child.transform.position = new Vector3(transform.position.x,transform.position.y, child.transform.position.z);
+            cam.transform.position = new Vector3(transform.position.x, transform.position.y, cam.transform.position.z);
         }
     }
 
