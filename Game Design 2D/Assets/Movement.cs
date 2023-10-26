@@ -5,19 +5,19 @@ using UnityEngine.SceneManagement;
 
 public class Movement : MonoBehaviour
 {
-
+    private SpriteRenderer spriteRenderer;
     public Rigidbody2D rb;
     public float speed = 5f;
     public Animator animator;
     public float runSpeed = 40f;
 
     float horizontalMove = 0f;
-
+    float VerticalMove = 0f;
     Vector2 movement;
     // Start is called before the first frame update
     void Start()
     {
-        
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -25,9 +25,9 @@ public class Movement : MonoBehaviour
     {
         //Character movemement is handled with these 2 lines of code 12:00 brackeys for this tutorial
         horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
-
-        animator.SetFloat("Speed", Mathf.Abs(horizontalMove));
-
+        VerticalMove = Input.GetAxisRaw("Vertical") * runSpeed;
+        animator.SetFloat("Speed", horizontalMove);
+        animator.SetFloat("UpSpeed", VerticalMove);
         if (Input.GetKeyDown(KeyCode.Escape)) // Check for the Escape key press
         {
             // Load the main menu scene or perform the desired action
@@ -41,5 +41,15 @@ public class Movement : MonoBehaviour
     void FixedUpdate()
     {
         rb.MovePosition(rb.position + movement * speed * Time.fixedDeltaTime);
+        if (rb.velocity.x < 0)
+        {
+            // Flip the sprite to face left
+            spriteRenderer.flipX = true;
+        }
+        else if (rb.velocity.x > 0)
+        {
+            // Flip the sprite to face right
+            spriteRenderer.flipX = false;
+        }
     }
 }
