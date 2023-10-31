@@ -1,17 +1,17 @@
 # TODO
 
 ## Level
-- [ ] Levels
- - [ ] Tutorial Level (Like Cuphead)
- - [ ] Colliders
- - [ ] Background
- - [ ] Roads
- - [ ] Buildings
+- [x] Levels
+ - [x] Tutorial Level (Like Cuphead)
+ - [x] Colliders
+ - [x] Background
+ - [x] Roads
+ - [x] Buildings
  - [ ] Game Objects added
  - [ ] Animations?
  - [ ] Lighting
  - [ ] Spawn Points
- - [ ] Over 2
+ - [x] Over 2
 
 ## Player
 - [ ] Player
