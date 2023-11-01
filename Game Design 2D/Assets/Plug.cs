@@ -6,6 +6,8 @@ public class Plug : MonoBehaviour
 {
     public GameObject[] electronics;
     private bool active = false;
+    [SerializeField] private AudioSource plugEffect;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -19,6 +21,7 @@ public class Plug : MonoBehaviour
         {
             Debug.Log("Activated");
             active = true;
+            plugEffect.Play();
             foreach (GameObject electronic in electronics)
             {
                 Power powered = electronic.GetComponent<Power>();

@@ -126,6 +126,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   electronics: []
+  plugEffect: {fileID: -5289261268281943700}
 --- !u!82 &-5289261268281943700
 AudioSource:
   m_ObjectHideFlags: 0
@@ -144,7 +145,7 @@ AudioSource:
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 157
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
