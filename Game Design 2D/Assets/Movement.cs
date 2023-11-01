@@ -14,6 +14,7 @@ public class Movement : MonoBehaviour
     float horizontalMove = 0f;
     float VerticalMove = 0f;
     Vector2 movement;
+   // [SerializeField] private AudioSource footstep;
     // Start is called before the first frame update
     void Start()
     {
@@ -28,6 +29,7 @@ public class Movement : MonoBehaviour
         VerticalMove = Input.GetAxisRaw("Vertical") * runSpeed;
         animator.SetFloat("Speed", horizontalMove);
         animator.SetFloat("UpSpeed", VerticalMove);
+     //   footstep.Play();
         if (Input.GetKeyDown(KeyCode.Escape)) // Check for the Escape key press
         {
             // Load the main menu scene or perform the desired action
@@ -41,6 +43,7 @@ public class Movement : MonoBehaviour
     void FixedUpdate()
     {
         rb.MovePosition(rb.position + movement * speed * Time.fixedDeltaTime);
+        
         if (rb.velocity.x < 0)
         {
             // Flip the sprite to face left
