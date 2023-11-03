@@ -23,11 +23,11 @@
 ## Sounds
 - [ ] Sounds
     - [ ] Walking
-    - [ ] Plug in
+    - [x] Plug in
     - [ ] Un Plug
     - [ ] Win 
     - [ ] Loss
-    - [ ] Ambiance
+    - [x] Ambiance
 
 ## Puzzles
  - [x] Plug & Socket
@@ -50,7 +50,7 @@
 
 ## Extention Cord (Can be Cut)
 - [ ] Cord
-    - [ ] Cord Asset / Sprite
+    - [x] Cord Asset / Sprite
     - [ ] Code
     - [ ] Animations
     - [ ] Behavior
