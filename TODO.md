@@ -24,7 +24,7 @@
 - [ ] Sounds
     - [ ] Walking
     - [x] Plug in
-    - [ ] Un Plug
+    - [x] Un Plug
     - [ ] Win 
     - [ ] Loss
     - [x] Ambiance
