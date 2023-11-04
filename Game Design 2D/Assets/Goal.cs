@@ -5,6 +5,7 @@ using UnityEngine.Rendering.Universal;
 using UnityEngine.SceneManagement;
 public class Goal : MonoBehaviour
 {
+    [SerializeField] private AudioSource LevelComplete;
     private Light2D light2D;
     // Start is called before the first frame update
     void Start()
@@ -25,5 +26,6 @@ public class Goal : MonoBehaviour
     void Win()
     {
         SceneManager.LoadScene("Level Completed");
+        LevelComplete.Play();
     }
 }
